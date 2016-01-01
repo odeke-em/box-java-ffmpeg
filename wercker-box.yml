@@ -3,7 +3,6 @@ version : 0.0.1
 inherits : pjvds/java
 type : main
 platform : ubuntu@12.04
-description : Java box with ffmpeg
 packages :
   - ffmpeg@1.0.0
 keywords:
