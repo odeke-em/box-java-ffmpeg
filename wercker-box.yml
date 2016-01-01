@@ -3,7 +3,17 @@ version: 0.0.1
 inherits: pjvds/java
 type: main
 platform: ubuntu@12.04
+description: Java box with ffmpeg
 keywords:
   - java-ffmpeg
-script: |-
-  sudo apt-get install ffmpeg
+  - ffmpeg
+  - java
+script: |
+  sudo apt-get update
+
+  # ffmepg -- adapted from https://github.com/reproio/reproio-box/blob/master/wercker-box.yml
+  git clone --depth 1 git://source.ffmpeg.org/ffmpeg
+  cd ffmpeg
+  ./configure --extra-libs="-ldl" --enable-gpl --enable-libass --enable-libfdk-aac --enable-libmp3lame --enable-libopus --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libx264 --enable-nonfree
+  make
+  sudo make install
