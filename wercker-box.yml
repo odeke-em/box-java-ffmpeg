@@ -1,19 +1,25 @@
-name: java-ffmpeg
-version: 0.0.1
-inherits: pjvds/java
-type: main
-platform: ubuntu@12.04
-description: Java box with ffmpeg
+name : ubuntu12.04-nodejs0.10-java-bundled
+version : 0.0.1
+inherits : wercker/ubuntu12.04-webessentials@1.0.4
+type : main
+platform : ubuntu@12.04
+packages :
+  - nodejs@0.10.38
 keywords:
-  - java-ffmpeg
-  - ffmpeg
-  - java
+  - nodejs
 script: |
+  export NODEVERSION=0.10.38
   sudo apt-get update
-
-  # ffmepg -- adapted from https://github.com/reproio/reproio-box/blob/master/wercker-box.yml
-  git clone --depth 1 git://source.ffmpeg.org/ffmpeg
-  cd ffmpeg
-  ./configure --extra-libs="-ldl" --enable-gpl --enable-libass --enable-libfdk-aac --enable-libmp3lame --enable-libopus --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libx264 --enable-nonfree
+  sudo apt-get install wget build-essential default-jdk
+  cd $HOME
+  mkdir nodeinstall
+  cd nodeinstall
+  wget http://nodejs.org/dist/v$NODEVERSION/node-v$NODEVERSION.tar.gz
+  tar xzf node-v$NODEVERSION.tar.gz
+  cd node-v$NODEVERSION
+  ./configure
   make
   sudo make install
+  cd $HOME
+  rm -fr nodeinstall
+  node -v
