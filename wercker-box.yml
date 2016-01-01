@@ -1,6 +1,6 @@
 name : java-ffmpeg
 version : 0.0.1
-inherits : pjvds/java
+inherits : pjvds/java@0.1.3
 type : main
 platform : ubuntu@12.04
 packages :
