@@ -4,13 +4,14 @@ inherits : pjvds/java
 type : main
 platform : ubuntu@12.04
 description : Java box with ffmpeg
+packages :
+  - ffmpeg@1.0.0
 keywords:
   - java-ffmpeg
   - ffmpeg
   - java
 script: |
   sudo apt-get update
-
   # ffmepg -- adapted from https://github.com/reproio/reproio-box/blob/master/wercker-box.yml
   git clone --depth 1 git://source.ffmpeg.org/ffmpeg
   cd ffmpeg
