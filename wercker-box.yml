@@ -11,6 +11,14 @@ keywords:
   - java
 script: |
   sudo apt-get update
+  # yasm -- adapted from https://github.com/reproio/reproio-box/blob/master/wercker-box.yml
+  wget http://www.tortall.net/projects/yasm/releases/yasm-1.2.0.tar.gz
+  tar xzvf yasm-1.2.0.tar.gz
+  cd yasm-1.2.0
+  ./configure
+  make
+  sudo make install
+
   # ffmepg -- adapted from https://github.com/reproio/reproio-box/blob/master/wercker-box.yml
   git clone --depth 1 git://source.ffmpeg.org/ffmpeg
   cd ffmpeg
