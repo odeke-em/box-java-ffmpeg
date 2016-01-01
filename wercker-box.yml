@@ -1,6 +1,6 @@
 name: java-ffmpeg
 version: 0.0.1
-inherits : pjvds/box-java
+inherits : pjvds/java
 type : main
 platform : ubuntu@12.04
 keywords:
