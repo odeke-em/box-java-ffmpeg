@@ -64,7 +64,7 @@ script: |
   echo "###################################"
   echo "Installing libvpx"
   echo "###################################"
-  git clone --depth 1 http://git.chromium.org/webm/libvpx.git 
+  git clone --depth 1 http://chromium.googlesource.com/webm/libvpx.git
   cd libvpx 
   ./configure --disable-examples 
   make 
