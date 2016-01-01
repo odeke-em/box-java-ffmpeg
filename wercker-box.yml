@@ -1,9 +1,9 @@
 name: java-ffmpeg
 version: 0.0.1
-inherits : pjvds/java
-type : main
-platform : ubuntu@12.04
+inherits: pjvds/java
+type: main
+platform: ubuntu@12.04
 keywords:
   - java-ffmpeg
-script: |
+script: |-
   sudo apt-get install ffmpeg
